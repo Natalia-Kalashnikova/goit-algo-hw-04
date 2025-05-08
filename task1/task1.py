@@ -1,6 +1,6 @@
 import os
 
-def total_salary(path):
+def total_salary(path: str) -> tuple:
     """
     Calculates the total and average salary of developers from a given text file.
 
