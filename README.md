@@ -23,3 +23,11 @@ Your task is to develop a function that reads this file and returns a **list of 
 This can be useful for managing pet databases, adoption systems, or animal shelters.
 
 ---
+
+## Task 03 – Directory Structure Visualizer
+
+**Function:** `print_directory_tree(path: Path, prefix: str = "")`
+
+Developed a function that takes a directory path as an argument and prints its structure, including all subdirectories and files, with colored names for better visual differentiation. The implementation ensures smooth traversal, even when some directories are inaccessible due to permission restrictions.
+
+---
