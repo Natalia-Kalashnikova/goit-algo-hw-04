@@ -31,3 +31,11 @@ This can be useful for managing pet databases, adoption systems, or animal shelt
 Developed a function that takes a directory path as an argument and prints its structure, including all subdirectories and files, with colored names for better visual differentiation. The implementation ensures smooth traversal, even when some directories are inaccessible due to permission restrictions.
 
 ---
+
+## Task 04 – CLI Contact Assistant Bot
+
+**Function:** `main(), parse_input(), add_contact(), change_contact(), show_phone(), show_all_contacts()`
+
+Developed a command-line interface (CLI) assistant bot that processes text commands entered via keyboard and responds accordingly. The assistant stores contact names and phone numbers, allows updating and retrieving contacts, and displays all saved entries. A Python dictionary is used to manage the contacts, with names as keys and phone numbers as values. The bot continuously processes user input until the **"exit"** or **"close"** command is received. Input is case-insensitive, and the program handles incorrect commands with appropriate messages.
+
+---
