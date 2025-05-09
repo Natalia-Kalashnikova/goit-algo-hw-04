@@ -1,6 +1,6 @@
-import os
+from pathlib import Path
 
-def total_salary(path: str) -> tuple:
+def total_salary(path: Path) -> tuple[int, int]:
     """
     Calculates the total and average salary of developers from a given text file.
 
@@ -8,7 +8,7 @@ def total_salary(path: str) -> tuple:
     Example line: "Alex Korp,3000"
 
     Parameters:
-        path (str): The file path to the salary data file.
+        path (Path): The file path to the salary data file.
 
     Returns:
         tuple: A tuple (total_salary, average_salary) where:
@@ -19,7 +19,7 @@ def total_salary(path: str) -> tuple:
         If the file is not found or another error occurs, the function prints an error message and returns (0, 0).
     """
     try:
-        with open(path, 'r', encoding='utf-8') as file:
+        with path.open('r', encoding='utf-8') as file:
             salaries = []
 
             for line in file:
@@ -37,21 +37,21 @@ def total_salary(path: str) -> tuple:
             if not salaries:
                 return (0, 0)
 
-            total = sum(salaries)
-            average = total / len(salaries)
-            return (int(total), int(average))
+            total_salary_amount = sum(salaries)
+            average_salary = total_salary_amount / len(salaries)
+            return (int(total_salary_amount), int(average_salary))
 
     except FileNotFoundError:
         print(f"File not found: {path}")
         return (0, 0)
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    except OSError  as e:
+        print(f"File error: {e}")
         return (0, 0)
 
 # Construct the absolute path to the file
-current_dir = os.path.dirname(__file__)
-file_path = os.path.join(current_dir, "salary_file.txt")
+current_dir = Path(__file__).parent
+file_path = current_dir / "salary_file.txt"
 
 # Calculate total and average salary
-total, average = total_salary(file_path)
-print(f"The legal amount of salary: {total}, Average salary: {average}")
+total_amount, avg_salary = total_salary(file_path)
+print(f"The legal amount of salary: {total_amount}, Average salary: {avg_salary}")
