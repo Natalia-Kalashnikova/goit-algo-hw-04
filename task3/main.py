@@ -18,6 +18,8 @@ def print_directory_tree(path: Path, prefix: str = ""):
         - Blue for directories
         - Green for files
         - Red for errors or permission issues
+    Returns:
+        None    
     """
     try:
         # Sort items: directories first, then files; both alphabetically
