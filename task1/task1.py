@@ -1,6 +1,6 @@
 from pathlib import Path
 
-def total_salary(path: Path) -> tuple[int, int]:
+def total_salary(path: str) -> tuple[int, int]:
     """
     Calculates the total and average salary of developers from a given text file.
 
@@ -8,7 +8,7 @@ def total_salary(path: Path) -> tuple[int, int]:
     Example line: "Alex Korp,3000"
 
     Parameters:
-        path (Path): The file path to the salary data file.
+        path (str): The file path to the salary data file.
 
     Returns:
         tuple: A tuple (total_salary, average_salary) where:
@@ -19,7 +19,7 @@ def total_salary(path: Path) -> tuple[int, int]:
         If the file is not found or another error occurs, the function prints an error message and returns (0, 0).
     """
     try:
-        with path.open('r', encoding='utf-8') as file:
+        with open(path, 'r', encoding='utf-8') as file:
             salaries = []
 
             for line in file:
@@ -53,5 +53,5 @@ current_dir = Path(__file__).parent
 file_path = current_dir / "salary_file.txt"
 
 # Calculate total and average salary
-total_amount, avg_salary = total_salary(file_path)
+total_amount, avg_salary = total_salary(str(file_path))
 print(f"The legal amount of salary: {total_amount}, Average salary: {avg_salary}")
